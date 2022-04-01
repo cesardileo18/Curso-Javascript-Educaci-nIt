@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase4</title>
+</head>
+<body>
+    <div>
+        <table id="tabla">
+            <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+            </thead>
+        </table>
+    </div>
+    <script>
+        var array2 = [0,1];
+        var array = [1,"string", true, array2];
+        //Ingresa un elemento o varios al final 
+        array.push('vistoria')
+        //Agrega uno o varios elementos al principio de un array
+        array.unshift('vistoria')
+        //Borra un elemento al final de un array
+        array.pop()
+        //Borra el primer elemnto 
+        array.shift()
+        //El metodo splice nos permite pararnos en un indice del array 
+        //decirle cuantos campos tiene que eliminar o remplazar por los campos que ponemos en el ultimo atributo
+        array.splice(2,1)
+        //El primer parametro que pide es la posición del array de donde quiero arrancar
+        //El segundo parametro que pide es la cantidad de pocisiones que quiero remplazar
+        //Tercer parametro es lo que quiero poner para agregar
+        array.splice(2,1, "remplazando")
+
+        var alumnosActivos = ["juan","julio","soledad","maria"]
+        //Agregar 3 alumnos nuevos al array alumnos activos
+        //Borrar los dos primero usuarios
+        //a maria tiene que agregarle un apellido 
+        //["soledad,"maria gonzales", el resto de la info]
+
+
+        // alumnosActivos.push("cesar","pedro","alejandra")
+        // console.log('alumnosActivos', alumnosActivos);
+        // alumnosActivos.splice(0,2)
+        // console.log('alumnosActivos-Eliminar', alumnosActivos);
+        // alumnosActivos.splice(1,1,"maria gonzalez")
+        // console.log('alumnosActivos-AgregarApellido', alumnosActivos);
+
+        //La propiedad indexOf nos permite ubicar el indice de un array
+
+        // alumnosActivos.indexOf("soledad")
+
+        /*La funcion fliter no permite filtar un array, no remplaza al array ya existente 
+        sino que nos devuelve otro array con el filtro que quiera */
+        //filter(variable=>variable(con su logica))
+
+        // alumnosActivos.filter(alumno => alumno == "cesar")
+        // console.log('alumnoFiltrado', alumnosActivos);
+
+        /*Reemplazar a maria utilizando indexof por tres nombres
+        y luego traer todo lo que sea distinto a juan, el array tiene que quedar guardado sin juan*/
+
+        // alumnosActivos.splice(alumnosActivos.indexOf("maria"),1,"pepe","pepito","jesus")
+        // console.log('alumnosActivos', alumnosActivos);
+
+        // alumnosActivos = alumnosActivos.filter(alumno => alumno != "juan")
+        // console.log('filtrado', alumnosActivos);
+
+       var frutas = [];
+       frutas.push("pera")
+       frutas.push("manzana")
+       frutas.push("cambur")
+       frutas.push("kiwi")
+
+       frutas = frutas.filter(fruta => fruta != "manzana")
+       var table = document.getElementById("tabla")
+       var tbody = document.createElement("tbody")
+       table.appendChild(tbody)
+       for (let index = 0; index < frutas.length; index++) {
+           var tr = document.createElement("tr")
+           var tdId = document.createElement("td")
+           var tdNombre = document.createElement("td")
+       tdNombre.innerText = frutas[index];
+       tdId.innerText = index
+       
+       tr.appendChild(tdId)
+       tr.appendChild(tdNombre)
+       tbody.appendChild(tr)
+       }
+</script>
+</body>
+</html>
